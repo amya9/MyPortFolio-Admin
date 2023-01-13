@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+<h1 style="color: rgb(47, 0, 218); margin-left: 30px;" class="my-3 text-center">    
+    See all queries that are directed to you
+    </h1>
+{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+<div class="container ">
+    <div class="row mx-0  mt-5">
+      <div class="card " style="margin-left: 30px;margin-right: 30px;">
+        <div class="card-body">
+            {% for query in all_query_json %}
+            <div class="card">
+                <div class="card-header" style="background-color: coral;">
+      
+                 <h3>#{{loop.index}}. From: {{ query.visitor_name}}</h3> 
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Email: {{ query.visitor_email}}</h5>
+                  <h3 class="card-title">Subject: {{ query.visitor_subject}}</h3>
+                  <p class="card-text">Message: {{ query.visitor_message}}</p>
+                 
+                </div>
+                <div class="card-footer text-muted">
+                  Post-Date: {{query.visitor_timestamp}}
+                </div>
+               <br>
+              </div>
+                
+            {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock body %}

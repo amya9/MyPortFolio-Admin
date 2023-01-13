@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+<h1 style="color: rgb(47, 0, 218); margin-left: 30px;" class="my-3 text-center">    
+    Add New Project
+    </h1>
+{% endblock title %}
+
+{% block body %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+<div class="container ">
+    <div class="row mx-0  mt-5">
+      <div class="card " style="margin-left: 30px;margin-right: 30px;">
+        <div class="card-body">
+            <form class="row g-3" method="POST" action="/add-project" enctype="multipart/form-data" >
+<!-- Project basic details -->
+
+                <!-- Project Name -->
+                <div class="mb-3">
+                    <label for="productName" class="form-label"><h5>Project Name(MAX 30 Word)</h5> </label>
+                    <input type="text" name="project_name" class="form-control" id="productName" placeholder="Static Apk Analyzer(analyze different apk's)">
+                  </div>
+                <!-- Project Description -->
+                <div class="mb-3">
+                    <label for="projectDescription" class="form-label"><h5>Project Description(MAX 100 word)</h5> </label>
+                    <textarea rows="3" name="project_description" class="form-control" id="projectDescription" placeholder="project short to mid description upto 100 word"></textarea>
+                  </div>
+
+                <!-- Project GitHub Link  -->
+                <div class="mb-3">
+                  <label for="projectGitHubLink" class="form-label"><h5>Project GitHub Link </h5></label>
+                  <input type="text" name="project_github_link" class="form-control" id="projectGitHubLink" placeholder="Place project github link here">
+                </div>
+                <!-- Project Live link -->
+                <div class="mb-3">
+                  <label for="projectLiveLink" class="form-label"><h5>Project Live Link</h5> </label>
+                  <input type="text" name ="project_live_link" class="form-control" id="projectLiveLink" placeholder="Place your live project link here">
+                </div>
+                <!-- Project Icon link -->
+                <div class="mb-3">
+                  <label for="projectIcon" class="form-label"><h5>Project Icon</h5> </label>
+                  <input type="file" name="project_icon" class="form-control" id="projectIcon" >
+                </div>
+
+                <div class="text-center"><button type="submit" class="btn btn-primary" >Send Message</button></div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock body %}
